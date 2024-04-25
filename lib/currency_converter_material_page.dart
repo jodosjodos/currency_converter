@@ -39,7 +39,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
             ),
             TextField(
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.black,
               ),
               decoration: InputDecoration(
                 hintText: "please enter the amount in  USD",
@@ -54,6 +54,10 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 fillColor: Colors.white,
                 focusedBorder: border,
                 enabledBorder: border,
+              ),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+                signed: true,
               ),
             ),
           ],
