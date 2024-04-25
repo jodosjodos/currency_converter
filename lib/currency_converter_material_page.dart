@@ -15,9 +15,28 @@ class _CurrencyConverterMaterialPageState
     extends State<CurrencyConverterMaterialPage> {
   TextEditingController txControl = TextEditingController();
   double convertedRwf = 0;
+  String currencyType = "RWF";
+  List<String> currencies = ["RWF", "EUR", "JPY", "GBP", "CAD", "CHF"];
+
   handleConverter() {
     double amount = double.tryParse(txControl.text) ?? 0;
     double rate = 1288.55;
+    switch (currencyType) {
+      case "RWF":
+        rate = 1288.55;
+      case "EUR":
+        rate = 0.93;
+      case "JPY":
+        rate = 155.56;
+      case "GBP":
+        rate = 0.80;
+      case "CAD":
+        rate = 1.37;
+      case "CHF":
+        rate = 0.91;
+      default:
+        rate = 1288.5;
+    }
     setState(() {
       convertedRwf = amount * rate;
     });
@@ -63,9 +82,9 @@ class _CurrencyConverterMaterialPageState
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 255, 255, 255)),
                 ),
-                const Text(
-                  "RWF",
-                  style: TextStyle(
+                Text(
+                  currencyType,
+                  style: const TextStyle(
                     fontSize: 10,
                     color: Colors.white,
                   ),
@@ -97,6 +116,37 @@ class _CurrencyConverterMaterialPageState
                   decimal: true,
                   signed: true,
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButtonFormField<String>(
+                value: currencyType,
+                icon: const Icon(Icons.keyboard_arrow_down),
+                decoration: InputDecoration(
+                  hintText: "Select type of currency you want ",
+                  hintStyle: const TextStyle(
+                    color: Colors.black,
+                  ),
+                  prefixIconColor: Colors.black,
+                  filled: true,
+                  fillColor: Colors.white,
+                  focusedBorder: border,
+                  enabledBorder: border,
+                ),
+                items: currencies
+                    .map(
+                      (String currency) => DropdownMenuItem(
+                        value: currency,
+                        child: Text(currency),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (String? selectedVal) {
+                  setState(() {
+                    currencyType = selectedVal ?? "RWF";
+                  });
+                },
               ),
             ),
             Padding(
