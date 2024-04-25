@@ -24,7 +24,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
         ),
-        backgroundColor: Colors.blue[500],
+        backgroundColor: Colors.blue[100],
         centerTitle: true,
       ),
       body: Center(
@@ -39,9 +39,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   color: Color.fromARGB(255, 255, 255, 255)),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-              ),
+              padding: const EdgeInsets.all(10),
               child: TextField(
                 style: const TextStyle(
                   color: Colors.black,
