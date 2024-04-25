@@ -123,7 +123,7 @@ class _CurrencyConverterMaterialPageState
                   focusedBorder: border,
                   enabledBorder: border.copyWith(
                       borderSide:
-                          const BorderSide(width: 3, color: Colors.blue)),
+                          const BorderSide(width: 2, color: Colors.black)),
                 ),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
