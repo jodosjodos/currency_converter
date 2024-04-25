@@ -45,17 +45,23 @@ class _CurrencyConverterMaterialPageState
     });
   }
 
+  final border = OutlineInputBorder(
+    borderSide: const BorderSide(
+      width: 2.0,
+      style: BorderStyle.solid,
+    ),
+    borderRadius: BorderRadius.circular(5),
+  );
+  @override
+  void dispose() {
+    txControl.dispose();
+    super.dispose();
+  }
+
   @override
   // BuildContext let your widget be know is available
   Widget build(BuildContext context) {
     // custom setS
-    final border = OutlineInputBorder(
-      borderSide: const BorderSide(
-        width: 2.0,
-        style: BorderStyle.solid,
-      ),
-      borderRadius: BorderRadius.circular(5),
-    );
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
@@ -81,9 +87,10 @@ class _CurrencyConverterMaterialPageState
                 Text(
                   "${convertedRwf.toStringAsFixed(2)} ",
                   style: const TextStyle(
-                      fontSize: 55,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 255, 255, 255)),
+                    fontSize: 55,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
                 ),
                 Text(
                   currencyType,
