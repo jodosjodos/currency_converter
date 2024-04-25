@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CurrencyConverterMaterialPage extends StatelessWidget {
   const CurrencyConverterMaterialPage({super.key});
@@ -38,7 +39,9 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   color: Color.fromARGB(255, 255, 255, 255)),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+              ),
               child: TextField(
                 style: const TextStyle(
                   color: Colors.black,
